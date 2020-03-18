@@ -1,39 +1,28 @@
 #include <SoftwareSerial.h>
+#include "Motion.h"
+#include "directives.h"
 
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include "Motion.h"
-#include "directives.h"
-
 const int right_mode = 124;
 const int wrong_mode = 116;
-int tempRead1;
-int tempRead2;
 
-//FrontLeft == S2
-//FrontRight == S3
-//RearLeft == S1
-//RearRight == S4
-
-void Button(int rx[]) {
-  if(rx[7] == wrong_mode){
+void Button(int rx[]){
+  
+  if(rx[7] == wrong_mode){              //check if controller is in the right mode
     Serial.println("Change mode!");
     return;
+    
   }else if(rx[7] == right_mode){
+    
     LeftJoystick(rx[5]);
-    if (rx[0] == 1 && rx[1] == 128 && rx[2] == 127 && rx[3] == 128 && rx[4] == 127 && rx[5] == 8 && rx[6] == 0 && rx[7] == 124) {
+    
+    if (rx[0] == 1 && rx[1] == 128 && rx[2] == 127 && rx[3] == 128 && rx[4] == 127 && rx[5] == 8 && rx[6] == 0 && rx[7] == right_mode) {
     Serial.print("No input");
     Serial.println();
     Stop();
     }
-    /*
-    if (rx[0] == -1 && rx[1] == 128 && rx[2] == 127 && rx[3] == 128 && rx[4] == 127 && rx[5] == 8 && rx[6] == 0 && rx[7] == 116) {
-      Serial.print("No input");
-      Serial.println();
-      Stop();
-    }
-    */
   
     if (rx[5] == 72) {
       Serial.print("Button B");
