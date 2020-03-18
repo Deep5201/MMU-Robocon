@@ -5,7 +5,6 @@
 
 int rx[8] = {0};
 int i = 0;
-int acc = 300; //acceleration
 
 void setup() {
   // put your setup code here, to run once:
@@ -34,15 +33,23 @@ void loop() {
     }
     Serial.println();
     
-    if(rx[7] != -1){
-      Button(rx);
-    }else if(rx[7] == -1){
+    /*
+    If the last byte is -1, there is some error in the entire input byte array.
+    In that case issue a warning and stop all motion.
+    */     
+    if(rx[7] == -1){
       Serial.println("Warning: Bad input");
       Stop();
+    }else if(rx[7] != -1){
+      Button(rx);
     }
     
-    //Ensure Serial2 TX buffer is empty before executing next instruction set. Not strictly necessary but may reduce errors.
+    //Ensure Serial2 Tx buffer is empty before executing next instruction set. Not strictly necessary but may reduce errors.
     //Serial2.flush();
   }
+  /*
+  The delay gives time for the program to recieve every byte in from the controller input and issue the relevant commands
+  before the next loop starts, thus making the controller input much less error-prone.
+  */
   delay(100);
 }
