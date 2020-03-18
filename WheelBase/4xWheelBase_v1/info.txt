@@ -1,0 +1,6 @@
+Version 1 for 4x Wheel motion code.
+- Motion is controlled by Left Joystick or D-pad + ABXY buttons.
+- Rotational motion is disabled for now.
+- Controller mode id is 124. This means that the left joystick input values are discrete and range from 0-8, corresponding to: 
+  0: Forward; 1: RightForward; 2: Right; 3: RightBackward; 4: Backwward;
+  5: LeftBackward; 6: Left; 7: LeftForward; 8: Stop.
