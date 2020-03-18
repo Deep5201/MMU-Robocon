@@ -1,12 +1,12 @@
 #include <SoftwareSerial.h>
+#include "directives.h"
 
 #ifndef MOTION_H
 #define MOTION_H
 
-#include "directives.h"
-
-int spd = 200; //speed
-int stp = 0; //stop
+const int spd = 200;  //speed
+const int acc = 300;  //acceleration
+const int stp = 0;    //stop
 
 void Stop(){
   Serial2.print("S1");Serial2.println(stp);Serial2.print("\r");
@@ -154,7 +154,5 @@ void Motor_Down() {
   analogWrite(UpDown_PWM, half_speed);
   Serial.println("Down");
 }
-
-
 
 #endif
