@@ -98,6 +98,11 @@ void RotateRight(){
 }
 
 void LeftJoystick(int dir){
+  /*
+  Movement direction is based on dir. The value of dir ranges from 0-8 and
+  those correspond to, in order: Forward, Right-Forward, Right, Right-Backward,
+  Backward, Left-Backward, Left, Left-Forward, Stop.
+  */
   switch(dir){
     case 0:
       Forward();
@@ -127,6 +132,8 @@ void LeftJoystick(int dir){
       Stop();
       break;
     default:
+      //The default case should theoretically never be triggered unless the controller
+      //input data is corrupted. 
       Serial.println("Error");
   }
 }
