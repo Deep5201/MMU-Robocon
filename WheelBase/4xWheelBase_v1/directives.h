@@ -1,5 +1,3 @@
-#include <SoftwareSerial.h>
-
 #ifndef DIRECTIVES_H
 #define DIRECTIVES_H
 
