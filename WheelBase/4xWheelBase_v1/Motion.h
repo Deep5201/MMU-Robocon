@@ -1,11 +1,10 @@
-#include <SoftwareSerial.h>
 #include "directives.h"
 
 #ifndef MOTION_H
 #define MOTION_H
 
 const int spd = 200;  //speed
-const int acc = 300;  //acceleration
+const int acc = 300;   //acceleration
 const int stp = 0;    //stop
 
 void Stop(){
