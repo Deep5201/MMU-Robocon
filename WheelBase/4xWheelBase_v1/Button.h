@@ -1,4 +1,3 @@
-#include <SoftwareSerial.h>
 #include "Motion.h"
 #include "directives.h"
 
@@ -103,7 +102,6 @@ void Button(int rx[]){
       Serial.print("Button RB");
       Serial.println();
       RotateRight();
-      
     }
   
     if (rx[6] == 4) {
