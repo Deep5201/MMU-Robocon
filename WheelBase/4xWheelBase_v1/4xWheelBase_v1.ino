@@ -1,7 +1,5 @@
-#include <SoftwareSerial.h>
 #include "directives.h"
 #include "Button.h"
-#include "Motion.h"
 
 int rx[8] = {0};
 int i = 0;
